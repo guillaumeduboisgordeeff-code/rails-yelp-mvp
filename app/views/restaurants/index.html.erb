@@ -1,0 +1,10 @@
+<h1 class="text-primary bg-light">All restaurants</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant | %>
+    <li class="mb-2"><%= "#{restaurant.name} - #{restaurant.address} - #{restaurant.category} - #{restaurant.phone_number} (#{restaurant.id})" %></li>
+    <%= link_to 'details', restaurant_path(restaurant) %>
+  <% end %>
+</ul>
+
+<%= link_to 'create new', new_restaurant_path %>
