@@ -7,3 +7,21 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# appel gem faker
+require "faker"
+
+# 1 clean the database
+puts "Cleaning database..."
+Restaurant.destroy_all
+
+# 2 create restaurants instances
+puts "Creating 5 restaurants..."
+
+5.times do Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: Faker::Address.full_address,
+  category: %w(chinese italian japanese french belgian).sample,
+  )
+end
+
+puts "5 restaurants created"
